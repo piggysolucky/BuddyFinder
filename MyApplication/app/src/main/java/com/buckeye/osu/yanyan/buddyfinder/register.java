@@ -31,6 +31,10 @@ public class Register extends ActionBarActivity implements View.OnClickListener{
     public void onClick(View v){
        switch (v.getId()){
            case R.id.register:
+               String uId = userId.getText().toString();
+               String pw = password.getText().toString();
+               String em = email.getText().toString();
+               User user = new User(uId, em, pw);
                break;
        }
    }
