@@ -47,7 +47,7 @@ public class Register extends ActionBarActivity implements View.OnClickListener{
         requests.storeUserDataInBackground(user, new GetUserCallback() {
             @Override
             public void done(User user) {
-                startActivity(new Intent(Register.this, LogIn.class));
+                startActivity(new Intent(Register.this, LogIn.class)); //Navigate user to login page
             }
         });
     }
