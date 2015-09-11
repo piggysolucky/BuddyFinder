@@ -35,7 +35,20 @@ public class Register extends ActionBarActivity implements View.OnClickListener{
                String pw = password.getText().toString();
                String em = email.getText().toString();
                User user = new User(uId, em, pw);
+
+               registerUser(user);
                break;
        }
    }
+
+    //Register the user with server
+    private void registerUser (User user) {
+        ServerRequests requests = new ServerRequests(this, "Register");
+        requests.storeUserDataInBackground(user, new GetUserCallback() {
+            @Override
+            public void done(User user) {
+                startActivity(new Intent(Register.this, LogIn.class));
+            }
+        });
+    }
 }
