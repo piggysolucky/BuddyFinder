@@ -25,8 +25,8 @@ import java.util.ArrayList;
  */
 public class ServerRequests {
     private ProgressDialog progressDialog;
-    private static final int CONNECTION_TINEOUT = 1000*15;
-    private static final String SERVER_ADDRESS = "";
+    private static final int CONNECTION_TIMOUT = 1000*15;
+    private static final String SERVER_ADDRESS = "http://205.178.146.114/";
 
     public ServerRequests(Context context, String title){
         progressDialog = new ProgressDialog(context);
@@ -63,11 +63,11 @@ public class ServerRequests {
             dataToSend.add(new BasicNameValuePair("PASSWORD", user.getPassword()));
 
             HttpParams httpParams = new BasicHttpParams();
-            HttpConnectionParams.setConnectionTimeout(httpParams, CONNECTION_TINEOUT);
-            HttpConnectionParams.setSoTimeout(httpParams, CONNECTION_TINEOUT);
+            HttpConnectionParams.setConnectionTimeout(httpParams, CONNECTION_TIMOUT);
+            HttpConnectionParams.setSoTimeout(httpParams, CONNECTION_TIMOUT);
 
             HttpClient client = new DefaultHttpClient(httpParams);
-            HttpPost post = new HttpPost(SERVER_ADDRESS + "Register.php");
+            HttpPost post = new HttpPost(SERVER_ADDRESS + "register.php");
 
             try{
                 post.setEntity(new UrlEncodedFormEntity(dataToSend));
@@ -103,8 +103,8 @@ public class ServerRequests {
             dataToSend.add(new BasicNameValuePair("PASSWORD", user.getPassword()));
 
             HttpParams httpParams = new BasicHttpParams();
-            HttpConnectionParams.setConnectionTimeout(httpParams, CONNECTION_TINEOUT);
-            HttpConnectionParams.setSoTimeout(httpParams, CONNECTION_TINEOUT);
+            HttpConnectionParams.setConnectionTimeout(httpParams, CONNECTION_TIMOUT);
+            HttpConnectionParams.setSoTimeout(httpParams, CONNECTION_TIMOUT);
 
             HttpClient client = new DefaultHttpClient(httpParams);
             HttpPost post = new HttpPost(SERVER_ADDRESS + "Login.php");
